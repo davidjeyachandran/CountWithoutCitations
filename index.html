@@ -8,9 +8,6 @@
   <title>Word count without Citations</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
   <style>
     textarea {
       width: 100%;
@@ -18,59 +15,36 @@
 
     #citation {
       visibility: hidden;
+      opacity: 0.5;
     }
 
     #citation-text {
       background-color: #eee;
     }
   </style>
-  <script>
-    function removeCitations() {
-      const $textInput = document.getElementById('inputtext')
-      const textValue = $textInput.value
-
-      // console.log('removeCitations', textValue);
-      const $citations = document.getElementById('citation-text')
-      const regex = /\([\w\s\.:;,&-]*\d\)/g;
-      const found = textValue.match(regex);
-      console.log(found);
-
-      // Show citations
-      $citations.value = found.join('\n');
-      document.getElementById('citation').style.visibility = 'visible'
-
-      // Remove citations
-      const cleaned = textValue.replaceAll(regex, '');
-
-      // Calculate word count
-      const regexWords = /\s+/gi;
-      const wordCount = cleaned.trim().replace(regexWords, ' ').split(' ').length;
-      const msg = "Word count without citations: " + wordCount
-      console.log(msg);
-      document.getElementById('result').innerHTML = msg
-
-    }
-  </script>
 </head>
 
 <body>
   <div class="container">
-    <h1>Word count without Citations</h1>
+    <h1>Word count without Citations<span id="results-heading"></span></h1>
     <div class="row">
       <div class="col-md-8">
         <label for="inputtext">Paste Text here...</label>
         <textarea name="inputtext" id="inputtext" cols="30" rows="20"></textarea>
-        <button onclick="removeCitations()">Remove Citations</button>
+        <button id="remove">Remove Citations</button>
         <br /><br />
         <div id="result"></div>
+        <br /><br />
       </div>
       <div class="col-md-4" id="citation">
         <label for="citation-text">Citations</label>
         <textarea name="citation-text" readonly id="citation-text" cols="30" rows="20"></textarea>
       </div>
     </div>
-  </div>
 
+    <p><small>Made with love for my lovely wife Christine</small></p>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
