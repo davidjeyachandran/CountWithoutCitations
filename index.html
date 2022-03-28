@@ -13,7 +13,6 @@
       font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     }
 
-
     textarea {
       width: 100%;
       font-family: Garamond, "Times New Roman", serif;
@@ -28,19 +27,25 @@
     #citation-text {
       background-color: #eee;
     }
+
+    p small {
+      color: #555;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <h1>Word Count<span id="results-heading"></span></h1>
-    <h6>Get a word count without citations</h5>
+    <h6>Get a word count without the citations</h5>
       <br />
       <div class="row">
         <div class="col-md-8">
           <label hidden for="inputtext">Paste Text here...</label>
-          <textarea name="inputtext" id="inputtext" cols="30" rows="20" placeholder="Paste Text here"></textarea>
-          <button id="remove">Count words</button>
+          <textarea name="inputtext" id="inputtext" class="form-control" cols="30" rows="20"
+            placeholder="Paste Text here"></textarea>
+          <br />
+          <button id="remove" class="btn btn-primary">Count words</button>
           <br /><br />
           <div id="result"></div>
           <br /><br />
